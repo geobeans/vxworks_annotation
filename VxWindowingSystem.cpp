@@ -40,24 +40,38 @@ unsigned int VxWindowingSystem::getNumScreens( const osg::GraphicsContext::Scree
     return 0;
 }
 
-void VxWindowingSystem::getScreenResolution(const osg::GraphicsContext::ScreenIdentifier& si, unsigned int& width, unsigned int& height )
+//void VxWindowingSystem::getScreenResolution(const osg::GraphicsContext::ScreenIdentifier& si, unsigned int& width, unsigned int& height )
+//{
+//	//whatever si,now always return 1024*768
+//	width = 1280;
+//	height = 1024;
+//	return;
+//}
+//
+//bool VxWindowingSystem::setScreenResolution( const osg::GraphicsContext::ScreenIdentifier& si, unsigned int width, unsigned int height )
+//{ 
+//	return false; 
+//}
+//
+//bool VxWindowingSystem::setScreenRefreshRate(const osg::GraphicsContext::ScreenIdentifier& si, double refreshRate)
+//{
+//	return false;
+//}
+
+void VxWindowingSystem::getScreenSettings(const osg::GraphicsContext::ScreenIdentifier& screenIdentifier, osg::GraphicsContext::ScreenSettings & resolution)
 {
-	//whatever si,now always return 1024*768
-	width = 1280;
-	height = 1024;
-	return;
+    resolution.width = 1280;
+    resolution.height = 1024;
 }
 
-bool VxWindowingSystem::setScreenResolution( const osg::GraphicsContext::ScreenIdentifier& si, unsigned int width, unsigned int height )
-{ 
-	return false; 
-}
-
-bool VxWindowingSystem::setScreenRefreshRate(const osg::GraphicsContext::ScreenIdentifier& si, double refreshRate)
+void VxWindowingSystem::enumerateScreenSettings(const osg::GraphicsContext::ScreenIdentifier& screenIdentifier, osg::GraphicsContext::ScreenSettingsList & resolutionList)
 {
-	return false;
+	osg::GraphicsContext::ScreenSettings  resolution;
+	resolution.width = 1280;
+	resolution.height = 1024;
+	resolutionList.push_back(resolution);
 }
-
+      
 osg::GraphicsContext* VxWindowingSystem::createGraphicsContext( osg::GraphicsContext::Traits* traits )
 {
     osg::ref_ptr<GraphicsWindowVxWorks> window = new GraphicsWindowVxWorks(traits);

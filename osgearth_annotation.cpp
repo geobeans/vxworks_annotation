@@ -23,7 +23,7 @@
 #include <osgViewer/Viewer>
 #include <osgViewer/ViewerEventHandlers>
 #include <osgGA/StateSetManipulator>
-#include <osgEarthDrivers/tms/TMSOptions>
+#include "TMSOptions"
 
 using namespace osgEarth;
 using namespace osgEarth::Util;
@@ -50,7 +50,7 @@ struct ToggleNode : public ControlEventHandler {
 int
 main(int argc, char** argv)
 {
-    osg::Group* root = new osg::Group();
+	osg::Group* root = new osg::Group();
 
     // try to load an earth file.
     //osg::ArgumentParser arguments(&argc,argv);

@@ -28,15 +28,19 @@ class VxWindowingSystem : public osg::GraphicsContext::WindowingSystemInterface
     // Return the number of screens present in the system
        virtual unsigned int getNumScreens( const osg::GraphicsContext::ScreenIdentifier& si );
 
+       virtual void getScreenSettings(const osg::GraphicsContext::ScreenIdentifier& screenIdentifier, osg::GraphicsContext::ScreenSettings & resolution);
+
+       virtual void enumerateScreenSettings(const osg::GraphicsContext::ScreenIdentifier& screenIdentifier, osg::GraphicsContext::ScreenSettingsList & resolutionList);
+
        // Return the resolution of specified screen
        // (0,0) is returned if screen is unknown
-       virtual void getScreenResolution( const osg::GraphicsContext::ScreenIdentifier& si, unsigned int& width, unsigned int& height );
+       //virtual void getScreenResolution( const osg::GraphicsContext::ScreenIdentifier& si, unsigned int& width, unsigned int& height );
 
        // Set the resolution for given screen
-       virtual bool setScreenResolution( const osg::GraphicsContext::ScreenIdentifier& si, unsigned int width, unsigned int height );
+       //virtual bool setScreenResolution( const osg::GraphicsContext::ScreenIdentifier& si, unsigned int width, unsigned int height );
 
        // Set the refresh rate for given screen
-       virtual bool setScreenRefreshRate( const osg::GraphicsContext::ScreenIdentifier& si, double refreshRate );
+       //virtual bool setScreenRefreshRate( const osg::GraphicsContext::ScreenIdentifier& si, double refreshRate );
 
     
        virtual osg::GraphicsContext* createGraphicsContext( osg::GraphicsContext::Traits* traits );
